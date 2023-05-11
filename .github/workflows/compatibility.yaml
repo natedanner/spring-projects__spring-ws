@@ -1,0 +1,35 @@
+name: Compatibility builds
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '5 6 * * *'
+
+jobs:
+  compatibility:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        spring: ['', 'spring-buildsnapshot']
+        jakarta-ee: ['jakarta-ee-10', 'jakarta-ee-9,-jakarta-ee-10']
+
+    name: Compatibility ${{ matrix.spring }} ${{ matrix.jakarta-ee }}
+
+    steps:
+
+    - name: Check out sources
+      uses: actions/checkout@v3
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: 17
+        cache: 'maven'
+
+    - name: List dependencies
+      run: ./mvnw -D dependency:list -Dsort
+    - name: Build
+      run: ./mvnw -B verify -P${{ matrix.spring }} ${{ matrix.jakarta-ee }},convergence --file pom.xml
