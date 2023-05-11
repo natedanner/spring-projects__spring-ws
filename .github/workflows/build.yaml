@@ -26,8 +26,8 @@ jobs:
     - name: Build with Maven
       run: ./mvnw clean dependency:list test -Dsort -B -Pjakarta-ee-10,distribute,convergence
 
-#    - name: Deploy to Artifactory
-#      env:
-#        ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
-#        ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
-#      run: ./mvnw -B clean deploy -Pci,artifactory
+    - name: Deploy to Artifactory
+      env:
+        ARTIFACTORY_USR: ${{ secrets.ARTIFACTORY_USERNAME }}
+        ARTIFACTORY_PSW: ${{ secrets.ARTIFACTORY_PASSWORD }}
+      run: ./mvnw -s settings.xml -B clean deploy -P-Pjakarta-ee-10,distribute,snapshot -Dmaven.test.skip=true
