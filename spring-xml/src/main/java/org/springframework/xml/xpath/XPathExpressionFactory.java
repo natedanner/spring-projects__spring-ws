@@ -67,12 +67,8 @@ public abstract class XPathExpressionFactory {
 		if (namespaces == null) {
 			namespaces = Collections.emptyMap();
 		}
-		try {
-			logger.trace("Creating [javax.xml.xpath.XPathExpression]");
-			return Jaxp13XPathExpressionFactory.createXPathExpression(expression, namespaces);
-		} catch (XPathException e) {
-			throw e;
-		}
+		logger.trace("Creating [javax.xml.xpath.XPathExpression]");
+		return Jaxp13XPathExpressionFactory.createXPathExpression(expression, namespaces);
 	}
 
 }

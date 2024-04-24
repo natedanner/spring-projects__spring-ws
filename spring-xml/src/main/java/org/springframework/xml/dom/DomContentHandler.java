@@ -41,7 +41,7 @@ public class DomContentHandler implements ContentHandler {
 
 	private final Document document;
 
-	private final List<Element> elements = new ArrayList<Element>();
+	private final List<Element> elements = new ArrayList<>();
 
 	private final Node node;
 
@@ -91,7 +91,7 @@ public class DomContentHandler implements ContentHandler {
 	}
 
 	@Override
-	public void characters(char ch[], int start, int length) throws SAXException {
+	public void characters(char[] ch, int start, int length) throws SAXException {
 		String data = new String(ch, start, length);
 		Node parent = getParent();
 		Node lastChild = parent.getLastChild();
@@ -130,7 +130,7 @@ public class DomContentHandler implements ContentHandler {
 	public void endPrefixMapping(String prefix) throws SAXException {}
 
 	@Override
-	public void ignorableWhitespace(char ch[], int start, int length) throws SAXException {}
+	public void ignorableWhitespace(char[] ch, int start, int length) throws SAXException {}
 
 	@Override
 	public void skippedEntity(String name) throws SAXException {}

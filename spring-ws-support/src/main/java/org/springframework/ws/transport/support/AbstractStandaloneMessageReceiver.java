@@ -29,11 +29,11 @@ import org.springframework.context.Lifecycle;
 public abstract class AbstractStandaloneMessageReceiver extends SimpleWebServiceMessageReceiverObjectSupport
 		implements Lifecycle, DisposableBean {
 
-	private volatile boolean active = false;
+	private volatile boolean active;
 
 	private boolean autoStartup = true;
 
-	private boolean running = false;
+	private boolean running;
 
 	private final Object lifecycleMonitor = new Object();
 

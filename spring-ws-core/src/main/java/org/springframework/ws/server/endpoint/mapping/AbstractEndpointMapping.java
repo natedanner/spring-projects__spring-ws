@@ -131,7 +131,7 @@ public abstract class AbstractEndpointMapping extends ApplicationObjectSupport i
 			}
 		}
 
-		List<EndpointInterceptor> interceptors = new ArrayList<EndpointInterceptor>();
+		List<EndpointInterceptor> interceptors = new ArrayList<>();
 		if (this.interceptors != null) {
 			interceptors.addAll(Arrays.asList(this.interceptors));
 		}

@@ -42,7 +42,7 @@ import org.w3c.dom.Document;
 class Wss4jHandler extends WSHandler {
 
 	/** Keys are constants from {@link ConfigurationConstants}; values are strings. */
-	private Properties options = new Properties();
+	private final Properties options = new Properties();
 
 	private String securementPassword;
 

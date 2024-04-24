@@ -173,7 +173,7 @@ public class MarshallingMethodEndpointAdapter extends AbstractMethodEndpointAdap
 	}
 
 	private boolean supportsReturnType(Method method) {
-		return (Void.TYPE.equals(method.getReturnType()) || getMarshaller().supports(method.getReturnType()));
+		return Void.TYPE.equals(method.getReturnType()) || getMarshaller().supports(method.getReturnType());
 	}
 
 	private boolean supportsParameters(Method method) {

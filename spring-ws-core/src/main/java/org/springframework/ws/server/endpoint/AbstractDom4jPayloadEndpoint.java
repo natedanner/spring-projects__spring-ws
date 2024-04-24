@@ -44,7 +44,7 @@ import org.w3c.dom.Node;
 @Deprecated
 public abstract class AbstractDom4jPayloadEndpoint extends TransformerObjectSupport implements PayloadEndpoint {
 
-	private boolean alwaysTransform = false;
+	private boolean alwaysTransform;
 
 	/**
 	 * Set if the request {@link Source} should always be transformed into a new {@link DocumentResult}.

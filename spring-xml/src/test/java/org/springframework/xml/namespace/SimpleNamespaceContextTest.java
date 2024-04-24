@@ -101,13 +101,13 @@ class SimpleNamespaceContextTest {
 		String result = iterator.next();
 
 		assertThat(result)
-				.has(new Condition<>(value -> value.equals("prefix1") || value.equals("prefix2"), "verify prefix"));
+				.has(new Condition<>(value -> "prefix1".equals(value) || "prefix2".equals(value), "verify prefix"));
 		assertThat(iterator.hasNext()).isTrue();
 
 		result = iterator.next();
 
 		assertThat(result)
-				.has(new Condition<>(value -> value.equals("prefix1") || value.equals("prefix2"), "verify prefix"));
+				.has(new Condition<>(value -> "prefix1".equals(value) || "prefix2".equals(value), "verify prefix"));
 		assertThat(iterator).isEmpty();
 	}
 
@@ -202,14 +202,14 @@ class SimpleNamespaceContextTest {
 		String result = iterator.next();
 
 		assertThat(result).has(new Condition<>(
-				value -> value.equals(XMLConstants.DEFAULT_NS_PREFIX) || value.equals("prefix"), "Verify prefix"));
+				value -> value.equals(XMLConstants.DEFAULT_NS_PREFIX) || "prefix".equals(value), "Verify prefix"));
 		assertThat(iterator).isNotNull();
 		assertThat(iterator.hasNext()).isTrue();
 
 		result = iterator.next();
 
 		assertThat(result).has(new Condition<>(
-				value -> value.equals(XMLConstants.DEFAULT_NS_PREFIX) || value.equals("prefix"), "Verify prefix"));
+				value -> value.equals(XMLConstants.DEFAULT_NS_PREFIX) || "prefix".equals(value), "Verify prefix"));
 		assertThat(iterator).isEmpty();
 	}
 

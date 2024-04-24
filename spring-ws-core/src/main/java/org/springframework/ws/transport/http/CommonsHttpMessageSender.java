@@ -56,9 +56,9 @@ import org.springframework.ws.transport.WebServiceConnection;
 public class CommonsHttpMessageSender extends AbstractHttpWebServiceMessageSender
 		implements InitializingBean, DisposableBean {
 
-	private static final int DEFAULT_CONNECTION_TIMEOUT_MILLISECONDS = (60 * 1000);
+	private static final int DEFAULT_CONNECTION_TIMEOUT_MILLISECONDS = 60 * 1000;
 
-	private static final int DEFAULT_READ_TIMEOUT_MILLISECONDS = (60 * 1000);
+	private static final int DEFAULT_READ_TIMEOUT_MILLISECONDS = 60 * 1000;
 
 	private HttpClient httpClient;
 

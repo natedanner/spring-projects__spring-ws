@@ -58,7 +58,7 @@ public abstract class AbstractValidatingInterceptor extends TransformerObjectSup
 
 	private boolean validateRequest = true;
 
-	private boolean validateResponse = false;
+	private boolean validateResponse;
 
 	private XmlValidator validator;
 

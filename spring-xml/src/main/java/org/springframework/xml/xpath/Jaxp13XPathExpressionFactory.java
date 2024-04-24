@@ -41,7 +41,7 @@ import org.w3c.dom.NodeList;
  */
 abstract class Jaxp13XPathExpressionFactory {
 
-	private static XPathFactory xpathFactory = XPathFactory.newInstance();
+	private static final XPathFactory xpathFactory = XPathFactory.newInstance();
 
 	/**
 	 * Creates a JAXP 1.3 {@code XPathExpression} from the given string expression.
@@ -88,7 +88,7 @@ abstract class Jaxp13XPathExpressionFactory {
 	}
 
 	/** JAXP 1.3 implementation of the {@code XPathExpression} interface. */
-	private static class Jaxp13XPathExpression implements XPathExpression {
+	private static final class Jaxp13XPathExpression implements XPathExpression {
 
 		private final javax.xml.xpath.XPathExpression xpathExpression;
 		private final String expression;
@@ -126,7 +126,7 @@ abstract class Jaxp13XPathExpressionFactory {
 		}
 
 		private List<Node> toNodeList(NodeList nodeList) {
-			List<Node> result = new ArrayList<Node>(nodeList.getLength());
+			List<Node> result = new ArrayList<>(nodeList.getLength());
 			for (int i = 0; i < nodeList.getLength(); i++) {
 				result.add(nodeList.item(i));
 			}
@@ -165,7 +165,7 @@ abstract class Jaxp13XPathExpressionFactory {
 		@Override
 		public <T> List<T> evaluate(Node node, NodeMapper<T> nodeMapper) throws XPathException {
 			NodeList nodes = (NodeList) evaluate(node, XPathConstants.NODESET);
-			List<T> results = new ArrayList<T>(nodes.getLength());
+			List<T> results = new ArrayList<>(nodes.getLength());
 			for (int i = 0; i < nodes.getLength(); i++) {
 				try {
 					results.add(nodeMapper.mapNode(nodes.item(i), i));

@@ -104,7 +104,7 @@ import org.springframework.ws.transport.WebServiceMessageReceiver;
  * @author Lukas Krecan
  * @since 2.0
  */
-public class MockWebServiceClient {
+public final class MockWebServiceClient {
 
 	private static final Log logger = LogFactory.getLog(MockWebServiceClient.class);
 
@@ -190,7 +190,7 @@ public class MockWebServiceClient {
 
 	// ResponseActions
 
-	private static class MockWebServiceClientResponseActions implements ResponseActions {
+	private static final class MockWebServiceClientResponseActions implements ResponseActions {
 
 		private final MessageContext messageContext;
 

@@ -105,7 +105,7 @@ abstract class Jaxp15ValidatorFactory {
 	/** {@code ErrorHandler} implementation that stores errors and fatal errors in a list. */
 	private static class DefaultValidationErrorHandler implements ValidationErrorHandler {
 
-		private List<SAXParseException> errors = new ArrayList<SAXParseException>();
+		private List<SAXParseException> errors = new ArrayList<>();
 
 		@Override
 		public SAXParseException[] getErrors() {

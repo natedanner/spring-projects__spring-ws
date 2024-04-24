@@ -121,7 +121,7 @@ public class SoapHeaderElementMethodArgumentResolver implements MethodArgumentRe
 
 	private List<SoapHeaderElement> extractSoapHeaderList(QName qname,
 			org.springframework.ws.soap.SoapHeader soapHeader) {
-		List<SoapHeaderElement> result = new ArrayList<SoapHeaderElement>();
+		List<SoapHeaderElement> result = new ArrayList<>();
 		Iterator<SoapHeaderElement> elements = soapHeader.examineAllHeaderElements();
 		while (elements.hasNext()) {
 			SoapHeaderElement e = elements.next();

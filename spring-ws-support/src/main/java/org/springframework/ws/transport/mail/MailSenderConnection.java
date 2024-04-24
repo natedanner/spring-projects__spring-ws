@@ -76,7 +76,7 @@ public class MailSenderConnection extends AbstractSenderConnection {
 
 	private String requestContentType;
 
-	private boolean deleteAfterReceive = false;
+	private boolean deleteAfterReceive;
 
 	private final URLName storeUri;
 
@@ -249,7 +249,7 @@ public class MailSenderConnection extends AbstractSenderConnection {
 	@Override
 	public Iterator<String> getResponseHeaderNames() throws IOException {
 		try {
-			List<String> headers = new ArrayList<String>();
+			List<String> headers = new ArrayList<>();
 			Enumeration<?> enumeration = responseMessage.getAllHeaders();
 			while (enumeration.hasMoreElements()) {
 				Header header = (Header) enumeration.nextElement();

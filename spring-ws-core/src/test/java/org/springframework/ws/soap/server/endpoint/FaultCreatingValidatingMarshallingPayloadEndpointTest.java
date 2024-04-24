@@ -162,7 +162,7 @@ public class FaultCreatingValidatingMarshallingPayloadEndpointTest {
 		}
 	}
 
-	private static class Person {
+	private static final class Person {
 
 		private String name;
 
@@ -195,7 +195,7 @@ public class FaultCreatingValidatingMarshallingPayloadEndpointTest {
 		}
 	}
 
-	private static class PersonMarshaller implements Unmarshaller, Marshaller {
+	private static final class PersonMarshaller implements Unmarshaller, Marshaller {
 
 		private final Person person;
 

@@ -71,9 +71,9 @@ public class JmsSenderConnection extends AbstractSenderConnection {
 
 	private MessagePostProcessor postProcessor;
 
-	private boolean sessionTransacted = false;
+	private boolean sessionTransacted;
 
-	private boolean temporaryResponseQueueCreated = false;
+	private boolean temporaryResponseQueueCreated;
 
 	/** Constructs a new JMS connection with the given parameters. */
 	protected JmsSenderConnection(ConnectionFactory connectionFactory, Connection connection, Session session,

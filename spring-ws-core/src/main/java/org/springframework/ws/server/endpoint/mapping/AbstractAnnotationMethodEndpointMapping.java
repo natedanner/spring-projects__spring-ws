@@ -34,7 +34,7 @@ import org.springframework.ws.server.endpoint.annotation.Endpoint;
  */
 public abstract class AbstractAnnotationMethodEndpointMapping<T> extends AbstractMethodEndpointMapping<T> {
 
-	private boolean detectEndpointsInAncestorContexts = false;
+	private boolean detectEndpointsInAncestorContexts;
 
 	/**
 	 * Set whether to detect endpoint beans in ancestor ApplicationContexts.
@@ -60,9 +60,9 @@ public abstract class AbstractAnnotationMethodEndpointMapping<T> extends Abstrac
 		if (logger.isDebugEnabled()) {
 			logger.debug("Looking for endpoints in application context: " + getApplicationContext());
 		}
-		String[] beanNames = (this.detectEndpointsInAncestorContexts
+		String[] beanNames = this.detectEndpointsInAncestorContexts
 				? BeanFactoryUtils.beanNamesForTypeIncludingAncestors(getApplicationContext(), Object.class)
-				: getApplicationContext().getBeanNamesForType(Object.class));
+				: getApplicationContext().getBeanNamesForType(Object.class);
 
 		for (String beanName : beanNames) {
 			Class<?> endpointClass = getApplicationContext().getType(beanName);

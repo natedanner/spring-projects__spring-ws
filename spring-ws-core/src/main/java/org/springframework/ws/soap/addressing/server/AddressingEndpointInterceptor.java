@@ -50,9 +50,9 @@ class AddressingEndpointInterceptor implements SoapEndpointInterceptor {
 
 	private final WebServiceMessageSender[] messageSenders;
 
-	private URI replyAction;
+	private final URI replyAction;
 
-	private URI faultAction;
+	private final URI faultAction;
 
 	AddressingEndpointInterceptor(AddressingVersion version, MessageIdStrategy messageIdStrategy,
 			WebServiceMessageSender[] messageSenders, URI replyAction, URI faultAction) {
@@ -97,7 +97,7 @@ class AddressingEndpointInterceptor implements SoapEndpointInterceptor {
 		Assert.isInstanceOf(SoapMessage.class, messageContext.getResponse());
 		MessageAddressingProperties requestMap = version
 				.getMessageAddressingProperties((SoapMessage) messageContext.getRequest());
-		EndpointReference replyEpr = !isFault ? requestMap.getReplyTo() : requestMap.getFaultTo();
+		EndpointReference replyEpr = isFault ? requestMap.getFaultTo() : requestMap.getReplyTo();
 		if (handleNoneAddress(messageContext, replyEpr)) {
 			return false;
 		}

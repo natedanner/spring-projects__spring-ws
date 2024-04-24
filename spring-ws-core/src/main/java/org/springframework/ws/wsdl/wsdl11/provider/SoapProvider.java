@@ -44,7 +44,7 @@ public class SoapProvider implements BindingsProvider, ServicesProvider {
 
 	private boolean createSoap11Binding = true;
 
-	private boolean createSoap12Binding = false;
+	private boolean createSoap12Binding;
 
 	/**
 	 * Indicates whether a SOAP 1.1 binding should be created.

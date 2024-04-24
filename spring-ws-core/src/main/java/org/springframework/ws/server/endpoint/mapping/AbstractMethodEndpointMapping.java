@@ -48,7 +48,7 @@ import org.springframework.ws.server.endpoint.MethodEndpoint;
  */
 public abstract class AbstractMethodEndpointMapping<T> extends AbstractEndpointMapping {
 
-	private final Map<T, MethodEndpoint> endpointMap = new HashMap<T, MethodEndpoint>();
+	private final Map<T, MethodEndpoint> endpointMap = new HashMap<>();
 
 	/**
 	 * Lookup an endpoint for the given message. The extraction of the endpoint key is delegated to the concrete subclass.
@@ -158,8 +158,8 @@ public abstract class AbstractMethodEndpointMapping<T> extends AbstractEndpointM
 
 	private Set<Method> findEndpointMethods(Class<?> endpointType,
 			final ReflectionUtils.MethodFilter endpointMethodFilter) {
-		final Set<Method> endpointMethods = new LinkedHashSet<Method>();
-		Set<Class<?>> endpointTypes = new LinkedHashSet<Class<?>>();
+		final Set<Method> endpointMethods = new LinkedHashSet<>();
+		Set<Class<?>> endpointTypes = new LinkedHashSet<>();
 		Class<?> specificEndpointType = null;
 		if (!Proxy.isProxyClass(endpointType)) {
 			endpointTypes.add(endpointType);
@@ -167,7 +167,7 @@ public abstract class AbstractMethodEndpointMapping<T> extends AbstractEndpointM
 		}
 		endpointTypes.addAll(Arrays.asList(endpointType.getInterfaces()));
 		for (Class<?> currentEndpointType : endpointTypes) {
-			final Class<?> targetClass = (specificEndpointType != null ? specificEndpointType : currentEndpointType);
+			final Class<?> targetClass = specificEndpointType != null ? specificEndpointType : currentEndpointType;
 			ReflectionUtils.doWithMethods(currentEndpointType, new ReflectionUtils.MethodCallback() {
 				public void doWith(Method method) {
 					Method specificMethod = ClassUtils.getMostSpecificMethod(method, targetClass);
@@ -204,7 +204,7 @@ public abstract class AbstractMethodEndpointMapping<T> extends AbstractEndpointM
 	 */
 	protected List<T> getLookupKeysForMethod(Method method) {
 		T key = getLookupKeyForMethod(method);
-		return key != null ? Collections.singletonList(key) : Collections.<T> emptyList();
+		return key != null ? Collections.singletonList(key) : Collections. emptyList();
 	}
 
 	/**

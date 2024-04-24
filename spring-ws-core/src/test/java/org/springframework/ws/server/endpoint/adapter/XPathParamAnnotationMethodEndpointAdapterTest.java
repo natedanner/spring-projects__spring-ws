@@ -50,7 +50,7 @@ public class XPathParamAnnotationMethodEndpointAdapterTest {
 
 	private XPathParamAnnotationMethodEndpointAdapter adapter;
 
-	private boolean supportedTypesInvoked = false;
+	private boolean supportedTypesInvoked;
 
 	private boolean supportedSourceInvoked;
 
@@ -179,7 +179,7 @@ public class XPathParamAnnotationMethodEndpointAdapterTest {
 
 		replay(requestMock, factoryMock);
 
-		Map<String, String> namespaces = new HashMap<String, String>();
+		Map<String, String> namespaces = new HashMap<>();
 		namespaces.put("root", rootNamespace);
 		namespaces.put("child", childNamespace);
 		adapter.setNamespaces(namespaces);

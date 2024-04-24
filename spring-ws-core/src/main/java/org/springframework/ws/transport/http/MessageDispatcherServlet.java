@@ -118,9 +118,9 @@ public class MessageDispatcherServlet extends FrameworkServlet {
 
 	private Map<String, XsdSchema> xsdSchemas;
 
-	private boolean transformWsdlLocations = false;
+	private boolean transformWsdlLocations;
 
-	private boolean transformSchemaLocations = false;
+	private boolean transformSchemaLocations;
 
 	/**
 	 * Public constructor, necessary for some Web application servers.

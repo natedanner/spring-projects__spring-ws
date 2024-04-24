@@ -42,7 +42,7 @@ import org.springframework.util.StringUtils;
 @SuppressWarnings("serial")
 public class SimpleSaajServlet extends HttpServlet {
 
-	private MessageFactory msgFactory = null;
+	private MessageFactory msgFactory;
 
 	@Override
 	public void init(ServletConfig servletConfig) throws ServletException {
@@ -98,7 +98,7 @@ public class SimpleSaajServlet extends HttpServlet {
 					reply.saveChanges();
 				}
 				resp.setStatus(
-						!reply.getSOAPBody().hasFault() ? HttpServletResponse.SC_OK : HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+						reply.getSOAPBody().hasFault() ? HttpServletResponse.SC_INTERNAL_SERVER_ERROR : HttpServletResponse.SC_OK);
 				putHeaders(reply.getMimeHeaders(), resp);
 				reply.writeTo(resp.getOutputStream());
 			} else {

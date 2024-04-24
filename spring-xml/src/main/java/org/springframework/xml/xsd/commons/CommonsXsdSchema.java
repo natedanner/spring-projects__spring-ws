@@ -84,7 +84,7 @@ public class CommonsXsdSchema implements XsdSchema {
 	}
 
 	public QName[] getElementNames() {
-		List<QName> result = new ArrayList<QName>(schema.getElements().keySet());
+		List<QName> result = new ArrayList<>(schema.getElements().keySet());
 		return result.toArray(new QName[result.size()]);
 	}
 

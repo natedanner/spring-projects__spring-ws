@@ -74,7 +74,7 @@ abstract class JaxenXPathExpressionFactory {
 	}
 
 	/** Jaxen implementation of the {@code XPathExpression} interface. */
-	private static class JaxenXpathExpression implements XPathExpression {
+	private static final class JaxenXpathExpression implements XPathExpression {
 
 		private XPath xpath;
 		private final String expression;
@@ -157,7 +157,7 @@ abstract class JaxenXPathExpressionFactory {
 		public <T> List<T> evaluate(Node context, NodeMapper<T> nodeMapper) throws XPathException {
 			try {
 				List<?> nodes = xpath.selectNodes(context);
-				List<T> results = new ArrayList<T>(nodes.size());
+				List<T> results = new ArrayList<>(nodes.size());
 				for (int i = 0; i < nodes.size(); i++) {
 					Node node = (Node) nodes.get(i);
 					try {

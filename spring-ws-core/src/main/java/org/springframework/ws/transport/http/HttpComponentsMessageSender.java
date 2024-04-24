@@ -58,9 +58,9 @@ import org.springframework.ws.transport.WebServiceConnection;
 public class HttpComponentsMessageSender extends AbstractHttpWebServiceMessageSender
 		implements InitializingBean, DisposableBean {
 
-	private static final int DEFAULT_CONNECTION_TIMEOUT_MILLISECONDS = (60 * 1000);
+	private static final int DEFAULT_CONNECTION_TIMEOUT_MILLISECONDS = 60 * 1000;
 
-	private static final int DEFAULT_READ_TIMEOUT_MILLISECONDS = (60 * 1000);
+	private static final int DEFAULT_READ_TIMEOUT_MILLISECONDS = 60 * 1000;
 
 	private HttpClient httpClient;
 
@@ -195,7 +195,7 @@ public class HttpComponentsMessageSender extends AbstractHttpWebServiceMessageSe
 			HttpHost host = new HttpHost(uri.getHost(), uri.getPort(), uri.getScheme());
 			final HttpRoute route;
 
-			if (uri.getScheme().equals("https")) {
+			if ("https".equals(uri.getScheme())) {
 				route = new HttpRoute(host, null, true);
 			} else {
 				route = new HttpRoute(host);

@@ -118,7 +118,7 @@ public class WsConfigurationSupport {
 	 */
 	protected final EndpointInterceptor[] getInterceptors() {
 		if (interceptors == null) {
-			interceptors = new ArrayList<EndpointInterceptor>();
+			interceptors = new ArrayList<>();
 			addInterceptors(interceptors);
 		}
 		return interceptors.toArray(new EndpointInterceptor[interceptors.size()]);
@@ -140,10 +140,10 @@ public class WsConfigurationSupport {
 	 */
 	@Bean
 	public DefaultMethodEndpointAdapter defaultMethodEndpointAdapter() {
-		List<MethodArgumentResolver> argumentResolvers = new ArrayList<MethodArgumentResolver>();
+		List<MethodArgumentResolver> argumentResolvers = new ArrayList<>();
 		addArgumentResolvers(argumentResolvers);
 
-		List<MethodReturnValueHandler> returnValueHandlers = new ArrayList<MethodReturnValueHandler>();
+		List<MethodReturnValueHandler> returnValueHandlers = new ArrayList<>();
 		addReturnValueHandlers(returnValueHandlers);
 
 		DefaultMethodEndpointAdapter adapter = new DefaultMethodEndpointAdapter();

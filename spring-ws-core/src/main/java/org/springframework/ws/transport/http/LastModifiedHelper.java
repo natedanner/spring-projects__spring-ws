@@ -33,7 +33,7 @@ import org.w3c.dom.Document;
  * @author Arjen Poutsma
  * @since 1.5.3
  */
-class LastModifiedHelper {
+final class LastModifiedHelper {
 
 	private LastModifiedHelper() {}
 

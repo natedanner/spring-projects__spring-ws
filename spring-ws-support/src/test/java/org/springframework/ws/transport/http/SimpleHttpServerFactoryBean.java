@@ -31,7 +31,7 @@ class SimpleHttpServerFactoryBean implements FactoryBean<HttpServer>, Initializi
 
 	private int backlog = -1;
 
-	private int shutdownDelay = 0;
+	private int shutdownDelay;
 
 	private Executor executor;
 
@@ -107,8 +107,8 @@ class SimpleHttpServerFactoryBean implements FactoryBean<HttpServer>, Initializi
 
 	@Override
 	public void afterPropertiesSet() throws IOException {
-		InetSocketAddress address = (this.hostname != null ? new InetSocketAddress(this.hostname, this.port)
-				: new InetSocketAddress(this.port));
+		InetSocketAddress address = this.hostname != null ? new InetSocketAddress(this.hostname, this.port)
+				: new InetSocketAddress(this.port);
 		this.server = HttpServer.create(address, this.backlog);
 		if (this.executor != null) {
 			this.server.setExecutor(this.executor);
@@ -137,7 +137,7 @@ class SimpleHttpServerFactoryBean implements FactoryBean<HttpServer>, Initializi
 
 	@Override
 	public Class<? extends HttpServer> getObjectType() {
-		return (this.server != null ? this.server.getClass() : HttpServer.class);
+		return this.server != null ? this.server.getClass() : HttpServer.class;
 	}
 
 	@Override

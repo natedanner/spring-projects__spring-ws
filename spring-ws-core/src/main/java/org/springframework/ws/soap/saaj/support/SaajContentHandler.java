@@ -46,7 +46,7 @@ public class SaajContentHandler implements ContentHandler {
 
 	private final SOAPEnvelope envelope;
 
-	private Map<String, String> namespaces = new LinkedHashMap<String, String>();
+	private final Map<String, String> namespaces = new LinkedHashMap<>();
 
 	/**
 	 * Constructs a new instance of the {@code SaajContentHandler} that creates children of the given {@code SOAPElement}.
@@ -64,7 +64,7 @@ public class SaajContentHandler implements ContentHandler {
 	}
 
 	@Override
-	public void characters(char ch[], int start, int length) throws SAXException {
+	public void characters(char[] ch, int start, int length) throws SAXException {
 		try {
 			String text = new String(ch, start, length);
 			element.addTextNode(text);
@@ -143,7 +143,7 @@ public class SaajContentHandler implements ContentHandler {
 	public void endDocument() throws SAXException {}
 
 	@Override
-	public void ignorableWhitespace(char ch[], int start, int length) throws SAXException {}
+	public void ignorableWhitespace(char[] ch, int start, int length) throws SAXException {}
 
 	@Override
 	public void processingInstruction(String target, String data) throws SAXException {}

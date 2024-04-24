@@ -67,7 +67,7 @@ public class HttpComponents5ClientFactory implements FactoryBean<CloseableHttpCl
 
 	private AuthScope authScope = ANY;
 
-	private Credentials credentials = null;
+	private Credentials credentials;
 
 	private Map<String, String> maxConnectionsPerHost = Map.of();
 
@@ -168,7 +168,7 @@ public class HttpComponents5ClientFactory implements FactoryBean<CloseableHttpCl
 			HttpHost host = new HttpHost(uri.getScheme(), uri.getHost(), getPort(uri));
 			final HttpRoute route;
 
-			if (uri.getScheme().equals("https")) {
+			if ("https".equals(uri.getScheme())) {
 				route = new HttpRoute(host, null, true);
 			} else {
 				route = new HttpRoute(host);

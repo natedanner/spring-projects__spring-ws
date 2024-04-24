@@ -133,7 +133,7 @@ public abstract class JmsTransportUtils {
 	 */
 	public static Iterator<String> getHeaderNames(Message message) throws JMSException {
 		Enumeration<?> properties = message.getPropertyNames();
-		List<String> results = new ArrayList<String>();
+		List<String> results = new ArrayList<>();
 		while (properties.hasMoreElements()) {
 			String property = (String) properties.nextElement();
 			if (property.startsWith(JmsTransportConstants.PROPERTY_PREFIX)) {

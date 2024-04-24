@@ -51,7 +51,7 @@ public class SaajXmlReader extends AbstractXmlReader {
 
 	private boolean namespacesFeature = true;
 
-	private boolean namespacePrefixesFeature = false;
+	private boolean namespacePrefixesFeature;
 
 	/**
 	 * Constructs a new instance of the {@code SaajXmlReader} that reads from the given {@code Node}.

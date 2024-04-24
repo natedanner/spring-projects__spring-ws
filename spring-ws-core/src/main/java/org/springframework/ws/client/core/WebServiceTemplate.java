@@ -793,7 +793,7 @@ public class WebServiceTemplate extends WebServiceAccessor implements WebService
 	}
 
 	/** Adapter to enable use of a WebServiceMessageCallback inside a WebServiceMessageExtractor. */
-	private static class WebServiceMessageCallbackMessageExtractor implements WebServiceMessageExtractor<Boolean> {
+	private static final class WebServiceMessageCallbackMessageExtractor implements WebServiceMessageExtractor<Boolean> {
 
 		private final WebServiceMessageCallback callback;
 
@@ -809,7 +809,7 @@ public class WebServiceTemplate extends WebServiceAccessor implements WebService
 	}
 
 	/** Adapter to enable use of a SourceExtractor inside a WebServiceMessageExtractor. */
-	private static class SourceExtractorMessageExtractor<T> implements WebServiceMessageExtractor<T> {
+	private static final class SourceExtractorMessageExtractor<T> implements WebServiceMessageExtractor<T> {
 
 		private final SourceExtractor<T> sourceExtractor;
 

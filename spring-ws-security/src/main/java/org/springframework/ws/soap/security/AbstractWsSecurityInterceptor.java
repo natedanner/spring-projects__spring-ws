@@ -65,7 +65,7 @@ public abstract class AbstractWsSecurityInterceptor implements SoapEndpointInter
 
 	private boolean validateResponse = true;
 
-	private boolean skipValidationIfNoHeaderPresent = false;
+	private boolean skipValidationIfNoHeaderPresent;
 
 	private EndpointExceptionResolver exceptionResolver;
 

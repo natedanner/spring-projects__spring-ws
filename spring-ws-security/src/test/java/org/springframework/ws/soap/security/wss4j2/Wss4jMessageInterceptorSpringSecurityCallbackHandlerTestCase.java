@@ -35,7 +35,7 @@ import org.springframework.ws.soap.security.wss4j2.callback.SpringSecurityPasswo
 
 public abstract class Wss4jMessageInterceptorSpringSecurityCallbackHandlerTestCase extends Wss4jTestCase {
 
-	private Properties users = new Properties();
+	private final Properties users = new Properties();
 
 	private AuthenticationManager authenticationManager;
 

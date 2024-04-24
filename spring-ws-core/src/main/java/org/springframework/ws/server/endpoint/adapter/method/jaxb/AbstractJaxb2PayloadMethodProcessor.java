@@ -72,7 +72,7 @@ import org.xml.sax.ext.LexicalHandler;
  */
 public abstract class AbstractJaxb2PayloadMethodProcessor extends AbstractPayloadMethodProcessor {
 
-	private final ConcurrentMap<Class<?>, JAXBContext> jaxbContexts = new ConcurrentHashMap<Class<?>, JAXBContext>();
+	private final ConcurrentMap<Class<?>, JAXBContext> jaxbContexts = new ConcurrentHashMap<>();
 
 	@Override
 	public final void handleReturnValue(MessageContext messageContext, MethodParameter returnType, Object returnValue)
@@ -159,7 +159,7 @@ public abstract class AbstractJaxb2PayloadMethodProcessor extends AbstractPayloa
 			return null;
 		}
 		try {
-			JaxbElementSourceCallback<T> callback = new JaxbElementSourceCallback<T>(clazz);
+			JaxbElementSourceCallback<T> callback = new JaxbElementSourceCallback<>(clazz);
 			TraxUtils.doWithSource(requestPayload, callback);
 			if (logger.isDebugEnabled()) {
 				logger.debug("Unmarshalled payload request to [" + callback.result + "]");
@@ -341,7 +341,7 @@ public abstract class AbstractJaxb2PayloadMethodProcessor extends AbstractPayloa
 		}
 	}
 
-	private class Jaxb2ResultCallback implements TraxUtils.ResultCallback {
+	private final class Jaxb2ResultCallback implements TraxUtils.ResultCallback {
 
 		private final Marshaller marshaller;
 
@@ -388,7 +388,7 @@ public abstract class AbstractJaxb2PayloadMethodProcessor extends AbstractPayloa
 		}
 	}
 
-	private class JaxbStreamingPayload implements StreamingPayload {
+	private final class JaxbStreamingPayload implements StreamingPayload {
 
 		private final Object jaxbElement;
 

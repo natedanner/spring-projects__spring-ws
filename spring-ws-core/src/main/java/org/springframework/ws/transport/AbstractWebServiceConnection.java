@@ -33,7 +33,7 @@ public abstract class AbstractWebServiceConnection implements WebServiceConnecti
 
 	private TransportOutputStream tos;
 
-	private boolean closed = false;
+	private boolean closed;
 
 	@Override
 	public final void send(WebServiceMessage message) throws IOException {

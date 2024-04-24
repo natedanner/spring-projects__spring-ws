@@ -28,7 +28,7 @@ public class LogAspect {
 
 	private static final Log logger = LogFactory.getLog(LogAspect.class);
 
-	private boolean logInvoked = false;
+	private boolean logInvoked;
 
 	public boolean isLogInvoked() {
 		return logInvoked;

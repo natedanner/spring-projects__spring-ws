@@ -116,7 +116,7 @@ public class SoapActionAnnotationMethodEndpointMapping extends AbstractAnnotatio
 
 	@Override
 	protected List<String> getLookupKeysForMethod(Method method) {
-		List<String> result = new ArrayList<String>();
+		List<String> result = new ArrayList<>();
 
 		SoapActions soapActions = AnnotationUtils.findAnnotation(method, SoapActions.class);
 		if (soapActions != null) {

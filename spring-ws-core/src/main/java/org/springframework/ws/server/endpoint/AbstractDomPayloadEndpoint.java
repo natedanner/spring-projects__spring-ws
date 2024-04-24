@@ -50,13 +50,13 @@ public abstract class AbstractDomPayloadEndpoint extends TransformerObjectSuppor
 
 	private DocumentBuilderFactory documentBuilderFactory;
 
-	private boolean validating = false;
+	private boolean validating;
 
 	private boolean namespaceAware = true;
 
-	private boolean expandEntityReferences = false;
+	private boolean expandEntityReferences;
 
-	private boolean alwaysTransform = false;
+	private boolean alwaysTransform;
 
 	/** Set whether or not the XML parser should be XML namespace aware. Default is {@code true}. */
 	public void setNamespaceAware(boolean namespaceAware) {

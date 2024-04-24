@@ -51,7 +51,7 @@ public class MockWebServiceMessage implements FaultAwareWebServiceMessage {
 
 	private StringBuilder content;
 
-	private boolean fault = false;
+	private boolean fault;
 
 	private QName faultCode;
 
@@ -170,7 +170,7 @@ public class MockWebServiceMessage implements FaultAwareWebServiceMessage {
 		return builder.toString();
 	}
 
-	private class StringBufferWriter extends Writer {
+	private final class StringBufferWriter extends Writer {
 
 		private StringBufferWriter() {
 			super(content);
@@ -198,7 +198,7 @@ public class MockWebServiceMessage implements FaultAwareWebServiceMessage {
 		public void flush() {}
 
 		@Override
-		public void write(char cbuf[], int off, int len) {
+		public void write(char[] cbuf, int off, int len) {
 
 			if (off < 0 || off > cbuf.length || len < 0 || off + len > cbuf.length || off + len < 0) {
 				throw new IndexOutOfBoundsException();

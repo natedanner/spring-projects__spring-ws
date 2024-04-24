@@ -107,7 +107,7 @@ public class SoapMessageDispatcher extends MessageDispatcher {
 		} else {
 			headerIterator = ((Soap12Header) soapHeader).examineHeaderElementsToProcess(actorsOrRoles, isUltimateReceiver);
 		}
-		List<QName> notUnderstoodHeaderNames = new ArrayList<QName>();
+		List<QName> notUnderstoodHeaderNames = new ArrayList<>();
 		while (headerIterator.hasNext()) {
 			SoapHeaderElement headerElement = headerIterator.next();
 			QName headerName = headerElement.getName();

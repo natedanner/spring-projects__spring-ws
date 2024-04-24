@@ -37,14 +37,14 @@ import org.springframework.ws.context.MessageContext;
  */
 public abstract class AbstractMapBasedEndpointMapping extends AbstractEndpointMapping {
 
-	private boolean lazyInitEndpoints = false;
+	private boolean lazyInitEndpoints;
 
-	private boolean registerBeanNames = false;
+	private boolean registerBeanNames;
 
-	private final Map<String, Object> endpointMap = new HashMap<String, Object>();
+	private final Map<String, Object> endpointMap = new HashMap<>();
 
 	// holds mappings set via setEndpointMap and setMappings
-	private Map<String, Object> temporaryEndpointMap = new HashMap<String, Object>();
+	private Map<String, Object> temporaryEndpointMap = new HashMap<>();
 
 	/**
 	 * Set whether to lazily initialize endpoints. Only applicable to singleton endpoints, as prototypes are always lazily

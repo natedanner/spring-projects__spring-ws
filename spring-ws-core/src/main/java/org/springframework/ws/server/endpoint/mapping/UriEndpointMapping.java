@@ -61,7 +61,7 @@ import org.springframework.ws.transport.context.TransportContextHolder;
  */
 public class UriEndpointMapping extends AbstractMapBasedEndpointMapping {
 
-	private boolean usePath = false;
+	private boolean usePath;
 
 	/**
 	 * Indicates whether the path should be used instead of the full URI. Default is {@code false}.

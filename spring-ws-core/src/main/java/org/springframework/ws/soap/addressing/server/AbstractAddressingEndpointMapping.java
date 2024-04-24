@@ -283,7 +283,7 @@ public abstract class AbstractAddressingEndpointMapping extends TransformerObjec
 		WebServiceMessageSender[] messageSenders = getMessageSenders(endpoint);
 		MessageIdStrategy messageIdStrategy = getMessageIdStrategy(endpoint);
 
-		List<EndpointInterceptor> interceptors = new ArrayList<EndpointInterceptor>();
+		List<EndpointInterceptor> interceptors = new ArrayList<>();
 		interceptors.addAll(Arrays.asList(preInterceptors));
 
 		AddressingEndpointInterceptor addressingInterceptor = new AddressingEndpointInterceptor(version, messageIdStrategy,

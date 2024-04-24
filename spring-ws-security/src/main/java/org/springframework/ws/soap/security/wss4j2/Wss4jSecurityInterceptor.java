@@ -611,7 +611,7 @@ public class Wss4jSecurityInterceptor extends AbstractWsSecurityInterceptor impl
 	protected void secureMessage(SoapMessage soapMessage, MessageContext messageContext)
 			throws WsSecuritySecurementException {
 
-		List<HandlerAction> securementActionsVector = new ArrayList<HandlerAction>();
+		List<HandlerAction> securementActionsVector = new ArrayList<>();
 		try {
 			securementActionsVector = WSSecurityUtil.decodeHandlerAction(securementActions, wssConfig);
 		} catch (WSSecurityException ex) {
@@ -793,7 +793,7 @@ public class Wss4jSecurityInterceptor extends AbstractWsSecurityInterceptor impl
 		List<WSHandlerResult> handlerResults;
 		if ((handlerResults = (List<WSHandlerResult>) messageContext
 				.getProperty(WSHandlerConstants.RECV_RESULTS)) == null) {
-			handlerResults = new ArrayList<WSHandlerResult>();
+			handlerResults = new ArrayList<>();
 			messageContext.setProperty(WSHandlerConstants.RECV_RESULTS, handlerResults);
 		}
 		WSHandlerResult rResult = new WSHandlerResult(validationActor, results,

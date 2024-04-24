@@ -26,13 +26,15 @@ import org.junit.jupiter.api.Test;
 
 public class CallbackHandlerChainTest {
 
-	private CallbackHandler supported = callbacks -> {};
+	private final CallbackHandler supported = callbacks -> {
+	};
 
-	private CallbackHandler unsupported = callbacks -> {
+	private final CallbackHandler unsupported = callbacks -> {
 		throw new UnsupportedCallbackException(callbacks[0]);
 	};
 
-	private Callback callback = new Callback() {};
+	private final Callback callback = new Callback() {
+	};
 
 	@Test
 	public void testSupported() throws Exception {

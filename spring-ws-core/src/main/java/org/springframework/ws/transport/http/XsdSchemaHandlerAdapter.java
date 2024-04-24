@@ -57,13 +57,13 @@ public class XsdSchemaHandlerAdapter extends LocationTransformerObjectSupport
 
 	private static final String CONTENT_TYPE = "text/xml";
 
-	private Map<String, String> expressionNamespaces = new HashMap<String, String>();
+	private final Map<String, String> expressionNamespaces = new HashMap<>();
 
 	private String schemaLocationExpression = DEFAULT_SCHEMA_LOCATION_EXPRESSION;
 
 	private XPathExpression schemaLocationXPathExpression;
 
-	private boolean transformSchemaLocations = false;
+	private boolean transformSchemaLocations;
 
 	/**
 	 * Sets the XPath expression used for extracting the {@code schemaLocation} attributes from the WSDL 1.1 definition.

@@ -63,11 +63,11 @@ public class CommonsXsdSchemaCollection implements XsdSchemaCollection, Initiali
 
 	private final XmlSchemaCollection schemaCollection = new XmlSchemaCollection();
 
-	private final List<XmlSchema> xmlSchemas = new ArrayList<XmlSchema>();
+	private final List<XmlSchema> xmlSchemas = new ArrayList<>();
 
 	private Resource[] xsdResources;
 
-	private boolean inline = false;
+	private boolean inline;
 
 	private URIResolver uriResolver = new ClasspathUriResolver();
 
@@ -128,8 +128,8 @@ public class CommonsXsdSchemaCollection implements XsdSchemaCollection, Initiali
 
 		schemaCollection.setSchemaResolver(uriResolver);
 
-		Set<XmlSchema> processedIncludes = new HashSet<XmlSchema>();
-		Set<XmlSchema> processedImports = new HashSet<XmlSchema>();
+		Set<XmlSchema> processedIncludes = new HashSet<>();
+		Set<XmlSchema> processedImports = new HashSet<>();
 
 		for (Resource xsdResource : xsdResources) {
 			Assert.isTrue(xsdResource.exists(), xsdResource + " does not exist");

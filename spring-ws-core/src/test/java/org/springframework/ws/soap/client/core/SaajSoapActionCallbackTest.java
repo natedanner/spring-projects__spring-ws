@@ -18,9 +18,9 @@ import org.springframework.ws.transport.TransportConstants;
 
 public class SaajSoapActionCallbackTest {
 
-	private SaajSoapMessageFactory saaj11Factory = new SaajSoapMessageFactory();
+	private final SaajSoapMessageFactory saaj11Factory = new SaajSoapMessageFactory();
 
-	private SaajSoapMessageFactory saaj12Factory = new SaajSoapMessageFactory();
+	private final SaajSoapMessageFactory saaj12Factory = new SaajSoapMessageFactory();
 
 	@BeforeEach
 	public void init() throws SOAPException {

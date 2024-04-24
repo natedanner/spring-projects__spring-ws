@@ -93,7 +93,7 @@ public abstract class RequestCreators {
 	/**
 	 * Adapts a {@link WebServiceMessageCreator} to the {@link RequestCreator} contract.
 	 */
-	private static class WebServiceMessageCreatorAdapter implements RequestCreator {
+	private static final class WebServiceMessageCreatorAdapter implements RequestCreator {
 
 		private final WebServiceMessageCreator adaptee;
 

@@ -78,9 +78,9 @@ public abstract class AbstractSoap11WebServiceTemplateIntegrationTestCase {
 
 	private WebServiceTemplate template;
 
-	private String messagePayload = "<root xmlns='http://springframework.org/spring-ws'><child/></root>";
+	private final String messagePayload = "<root xmlns='http://springframework.org/spring-ws'><child/></root>";
 
-	private Logger logger = LogManager.getLogger();
+	private final Logger logger = LogManager.getLogger();
 
 	@BeforeAll
 	public static void startJetty() throws Exception {
@@ -278,7 +278,7 @@ public abstract class AbstractSoap11WebServiceTemplateIntegrationTestCase {
 
 	/** Servlet that returns and error message for a given status code. */
 	@SuppressWarnings("serial")
-	private static class ErrorServlet extends HttpServlet {
+	private static final class ErrorServlet extends HttpServlet {
 
 		private int sc;
 
@@ -296,7 +296,7 @@ public abstract class AbstractSoap11WebServiceTemplateIntegrationTestCase {
 	@SuppressWarnings("serial")
 	private abstract static class AbstractSoapServlet extends HttpServlet {
 
-		protected MessageFactory messageFactory = null;
+		protected MessageFactory messageFactory;
 
 		private int sc = -1;
 
@@ -333,8 +333,8 @@ public abstract class AbstractSoap11WebServiceTemplateIntegrationTestCase {
 					reply.saveChanges();
 
 					if (sc == -1) {
-						resp.setStatus(!reply.getSOAPBody().hasFault() ? HttpServletResponse.SC_OK
-								: HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+						resp.setStatus(reply.getSOAPBody().hasFault() ? HttpServletResponse.SC_INTERNAL_SERVER_ERROR
+								: HttpServletResponse.SC_OK);
 					}
 
 					putHeaders(reply.getMimeHeaders(), resp);

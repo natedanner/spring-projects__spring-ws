@@ -157,8 +157,8 @@ public class CommonsXsdSchemaCollectionTest {
 		assertThat(schemas).hasSize(2);
 		assertThat(schemas[0].getTargetNamespace()).isEqualTo("http://mycompany.com/hr/schemas");
 
-		Resource hr_employee = new ClassPathResource("hr_employee.xsd", getClass());
-		Document expected = documentBuilder.parse(SaxUtils.createInputSource(hr_employee));
+		Resource hrEmployee = new ClassPathResource("hr_employee.xsd", getClass());
+		Document expected = documentBuilder.parse(SaxUtils.createInputSource(hrEmployee));
 		DOMResult domResult = new DOMResult();
 		transformer.transform(schemas[0].getSource(), domResult);
 

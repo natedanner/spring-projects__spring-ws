@@ -109,7 +109,7 @@ public class DomPoxWebServiceTemplateIntegrationTest {
 
 	/** Servlet that returns and error message for a given status code. */
 	@SuppressWarnings("serial")
-	public static class ErrorServlet extends HttpServlet {
+	public static final class ErrorServlet extends HttpServlet {
 
 		private int sc;
 

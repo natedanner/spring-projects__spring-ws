@@ -30,7 +30,7 @@ import org.w3c.dom.Document;
 
 public abstract class Wss4jMessageInterceptorUsernameTokenTestCase extends Wss4jTestCase {
 
-	private Properties users = new Properties();
+	private final Properties users = new Properties();
 
 	@Override
 	protected void onSetup() throws Exception {

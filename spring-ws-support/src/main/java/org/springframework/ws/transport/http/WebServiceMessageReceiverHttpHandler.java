@@ -39,7 +39,7 @@ import com.sun.net.httpserver.HttpHandler;
 public class WebServiceMessageReceiverHttpHandler extends SimpleWebServiceMessageReceiverObjectSupport
 		implements HttpHandler {
 
-	private boolean chunkedEncoding = false;
+	private boolean chunkedEncoding;
 
 	/** Enables chunked encoding on response bodies. Defaults to {@code false}. */
 	public void setChunkedEncoding(boolean chunkedEncoding) {

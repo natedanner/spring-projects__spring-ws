@@ -41,7 +41,7 @@ public abstract class AbstractXPathExpressionFactoryTestCase {
 
 	private Document namespacesDocument;
 
-	private Map<String, String> namespaces = new HashMap<String, String>();
+	private final Map<String, String> namespaces = new HashMap<>();
 
 	@BeforeEach
 	public void setUp() throws Exception {
